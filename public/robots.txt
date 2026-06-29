@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://khushsonani.vercel.app/sitemap.xml

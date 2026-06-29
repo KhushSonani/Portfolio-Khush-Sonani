@@ -1,17 +1,115 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Khush Sonani's Portfolio</title>
-  <link rel="shortcut icon" href="./src/assets/images/favicon.ico" type="image/x-icon">
-</head>
+    <!-- ── Primary Meta ─────────────────────────────────────────────────── -->
+    <title>Khush Sonani — Full Stack Developer &amp; Competitive Programmer</title>
+    <meta name="title"       content="Khush Sonani — Full Stack Developer &amp; Competitive Programmer" />
+    <meta name="description" content="CS undergraduate at Nirma University. CPL 2026 Winner. LeetCode Knight (2082, Top 1.67%). 2600+ problems solved. Building scalable full-stack apps with React, Node.js, and MongoDB." />
+    <meta name="keywords"    content="Khush Sonani, Full Stack Developer, Competitive Programmer, MERN Stack, React Developer, Node.js, LeetCode Knight, Codeforces Specialist, Nirma University, CPL 2026, SDE Intern" />
+    <meta name="author"      content="Khush Sonani" />
+    <meta name="robots"      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#050505" />
+    <meta name="color-scheme" content="dark" />
 
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
-</body>
+    <!-- ── Canonical ────────────────────────────────────────────────────── -->
+    <link rel="canonical" href="https://khushsonani.vercel.app/" />
 
+    <!-- ── Open Graph ───────────────────────────────────────────────────── -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://khushsonani.vercel.app/" />
+    <meta property="og:site_name"   content="Khush Sonani" />
+    <meta property="og:title"       content="Khush Sonani — Full Stack Developer &amp; Competitive Programmer" />
+    <meta property="og:description" content="CPL 2026 Winner. LeetCode Knight (2082, Top 1.67%). 2600+ problems solved. Building scalable full-stack apps with React, Node.js, MongoDB." />
+    <meta property="og:image"       content="https://khushsonani.vercel.app/portfolio.png" />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt"    content="Khush Sonani — Full Stack Developer Portfolio" />
+    <meta property="og:locale"       content="en_US" />
+
+    <!-- ── Twitter Card ─────────────────────────────────────────────────── -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:url"         content="https://khushsonani.vercel.app/" />
+    <meta name="twitter:title"       content="Khush Sonani — Full Stack Developer &amp; Competitive Programmer" />
+    <meta name="twitter:description" content="CPL 2026 Winner · LeetCode Knight (2082) · 2600+ problems · MERN Stack" />
+    <meta name="twitter:image"       content="https://khushsonani.vercel.app/portfolio.png" />
+
+    <!-- ── Favicon ──────────────────────────────────────────────────────── -->
+    <link rel="icon"             type="image/x-icon" href="/src/assets/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180"     href="/src/assets/images/favicon.ico" />
+
+    <!-- ── Resource Hints ───────────────────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com"    crossorigin />
+    <!-- Preload critical font subset — display=swap avoids FOIT -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+      />
+    </noscript>
+
+    <!-- ── Structured Data — Person ─────────────────────────────────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Khush Sonani",
+      "url": "https://khushsonani.vercel.app/",
+      "image": "https://khushsonani.vercel.app/portfolio.png",
+      "email": "khushsonani2005@gmail.com",
+      "jobTitle": "Full Stack Developer",
+      "description": "Computer Science undergraduate at Nirma University. CPL 2026 Winner. LeetCode Knight. Competitive Programmer and Full Stack Developer.",
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Nirma University",
+        "url": "https://nirmauni.ac.in"
+      },
+      "sameAs": [
+        "https://github.com/KhushSonani",
+        "https://www.linkedin.com/in/khush-sonani-b9b056290/",
+        "https://leetcode.com/u/khushsonani/",
+        "https://codeforces.com/profile/khushsonani",
+        "https://www.codechef.com/users/khush_sonani"
+      ],
+      "knowsAbout": [
+        "React", "Node.js", "MongoDB", "Express.js", "Socket.IO",
+        "JavaScript", "C++", "Java", "Python",
+        "Competitive Programming", "Data Structures & Algorithms",
+        "Full Stack Development", "REST APIs", "React Native"
+      ]
+    }
+    </script>
+
+    <!-- ── Critical inline CSS — prevents FOUC on dark background ───────── -->
+    <style>
+      html, body, #root {
+        background-color: #050505;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+      }
+      /* Reserve space for the loader so there is no CLS on first paint */
+      #root:empty::before {
+        content: '';
+        display: block;
+        min-height: 100vh;
+        background: #050505;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
