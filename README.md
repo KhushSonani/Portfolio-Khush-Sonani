@@ -1,88 +1,160 @@
-# Khush Sonani — Developer Portfolio
+# 🚀 Khush Sonani — Portfolio
 
 <div align="center">
-  <img src="public/portfolio.png" alt="Portfolio Preview" width="100%" />
+
+### Modern Developer Portfolio built with React, Vite & Tailwind CSS
+
+<p>
+<a href="https://portfolio-khush-sonani.vercel.app/">
+<img src="https://img.shields.io/badge/Live-Demo-8B5CF6?style=for-the-badge&logo=vercel&logoColor=white" />
+</a>
+
+<a href="https://github.com/KhushSonani/Portfolio-KD">
+<img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github" />
+</a>
+</p>
+
+<img src="public/preview.png" width="100%" alt="Portfolio Preview"/>
+
 </div>
 
-<br />
+---
 
-Welcome to my **premium developer portfolio**! This site is designed to showcase my journey as a Full Stack Developer and Competitive Programmer. It features a modern dark-theme aesthetic with glassmorphism elements, high-performance animations, and a fully responsive layout.
+## 📖 Overview
 
-🌐 **Live Preview:** [khushsonani.vercel.app](https://khushsonani.vercel.app/)
+This repository contains the source code for my personal developer portfolio.
+
+The portfolio is designed with a premium dark aesthetic, smooth animations, and a responsive user experience. It showcases my projects, technical skills, competitive programming achievements, leadership experience, and professional journey in a clean and interactive format.
+
+**Live Website**
+
+👉 **https://portfolio-khush-sonani.vercel.app/**
 
 ---
 
-## 🚀 Features
+# ✨ Features
 
-- **Modern Aesthetic:** Premium dark theme with glassmorphism, subtle glowing gradients, and polished micro-interactions.
-- **Smooth Animations:** Powered by **Framer Motion** and **GSAP** for entrance animations, hover states, and scroll-triggered reveals.
-- **Fluid Scrolling:** Integrated with **Lenis** for a buttery-smooth scrolling experience.
-- **Interactive UI:** Custom floating navbar, magnetic buttons, tilt-cards, and animated stats counters.
-- **Fully Responsive:** Mobile-first design that looks perfect on all screen sizes, featuring a custom animated mobile drawer menu.
-
----
-
-## 🛠️ Technologies Used
-
-- **Frontend Framework:** React.js + Vite
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion, GSAP
-- **Scroll Handling:** Lenis (Studio Freight)
-- **Icons:** React Icons
-- **Deployment:** Vercel
+* Premium modern UI
+* Dark theme with glassmorphism
+* Responsive design
+* Smooth scrolling
+* Scroll-triggered animations
+* Interactive components
+* Animated statistics
+* Project showcase
+* Competitive programming profile
+* Leadership & achievements section
+* Optimized performance
+* SEO-friendly configuration
 
 ---
 
-## 📂 Portfolio Sections
+# 🛠 Tech Stack
 
-1. **Hero:** Introduction with dynamic typewriter effect, floating stat badges, and my professional profile photo.
-2. **About:** A deeper dive into my background, focus areas, and current education at Nirma University.
-3. **Skills:** Categorised technical skills displayed with animated progress bars and tooltips.
-4. **Experience:** Professional journey, including my time as a Software Engineering Intern.
-5. **Projects:** Detailed showcases of my top projects (like RideSync) with tech stacks and repository links.
-6. **Competitive Profiles:** My competitive programming journey, featuring my LeetCode Knight and CodeChef 3★ ratings.
-7. **Leadership & Achievements:** A timeline of my major milestones, including winning the CPL 2026 Championship.
-8. **Contact:** Interactive contact form and quick links to my social profiles.
+| Category      | Technologies        |
+| ------------- | ------------------- |
+| Frontend      | React, Vite         |
+| Styling       | Tailwind CSS        |
+| Animation     | Framer Motion, GSAP |
+| Smooth Scroll | Lenis               |
+| Icons         | React Icons         |
+| Deployment    | Vercel              |
 
 ---
 
-## 💻 Getting Started (Local Development)
+# 📁 Project Structure
 
-If you'd like to run this project locally on your machine:
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/KhushSonani/Portfolio-Khush-Sonani.git
+```text
+Portfolio-KD
+│
+├── public/
+│   ├── preview.png
+│   ├── resume.pdf
+│   ├── robots.txt
+│   └── sitemap.xml
+│
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── layout/
+│   │   └── ui/
+│   │
+│   ├── hooks/
+│   ├── lib/
+│   ├── sections/
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── index.html
+├── package.json
+├── vite.config.js
+└── tailwind.config.js
 ```
 
-### 2. Navigate to the directory
+---
+
+# 🚀 Getting Started
+
+Clone the repository
+
 ```bash
-cd Portfolio-Khush-Sonani
+git clone https://github.com/KhushSonani/Portfolio-KD.git
 ```
 
-### 3. Install dependencies
+Navigate to the project
+
+```bash
+cd Portfolio-KD
+```
+
+Install dependencies
+
 ```bash
 npm install
 ```
 
-### 4. Start the development server
+Run locally
+
 ```bash
 npm run dev
 ```
 
-Open your browser and visit `http://localhost:5173` to see the live result! 🎉
+Build for production
+
+```bash
+npm run build
+```
+
+Preview production build
+
+```bash
+npm run preview
+```
 
 ---
 
-## 📬 Connect with Me
+# 📦 Deployment
 
-- **LinkedIn:** [linkedin.com/in/khush-sonani-b9b056290](https://www.linkedin.com/in/khush-sonani-b9b056290/)
-- **GitHub:** [@KhushSonani](https://github.com/KhushSonani)
-- **LeetCode:** [khushsonani](https://leetcode.com/u/khushsonani/)
-- **Email:** khushsonani2005@gmail.com
+The portfolio is deployed on **Vercel**.
+
+Every push to the `main` branch automatically triggers a new production deployment.
 
 ---
 
-<div align="center">
-  Designed & Built by <b>Khush Sonani</b>
-</div>
+# 📸 Preview
+
+The homepage showcases:
+
+* Hero section
+* Animated navigation
+* About
+* Skills
+* Experience
+* Featured projects
+* Competitive programming achievements
+* Leadership timeline
+* Contact section
+
+---
+
+## ⭐ If you found this project interesting, consider giving it a star.
