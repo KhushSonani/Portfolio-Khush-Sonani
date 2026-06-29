@@ -11,6 +11,7 @@ import TiltCard       from "@/components/ui/TiltCard";
 import { PERSONAL_INFO, HERO_BADGES } from "@/lib/constants";
 import { staggerContainer, heroTextReveal, staggerItem } from "@/lib/animations";
 import { gsap, useGSAPReveal } from "@/hooks/useGSAP";
+import profileImg from "@/assets/images/Me.jpeg";
 
 // ─── Typewriter ───────────────────────────────────────────────────────────────
 function useTypewriter(words, speed = 68, pause = 2100) {
@@ -41,86 +42,78 @@ const ROLES = [
   "Problem Solver",
 ];
 
-// ─── Code panel ───────────────────────────────────────────────────────────────
-const CODE_LINES = [
-  [{ t: "kw", v: "const " }, { t: "fn", v: "khush" }, { t: "op", v: " = {" }],
-  [{ t: "ky", v: "  role" }, { t: "op", v: ": " }, { t: "st", v: '"Full Stack Dev"' }, { t: "op", v: "," }],
-  [{ t: "ky", v: "  rating" }, { t: "op", v: ": " }, { t: "nm", v: "{ lc: 2082, cf: 1454 }" }, { t: "op", v: "," }],
-  [{ t: "ky", v: "  rank" }, { t: "op", v: ": " }, { t: "st", v: '"LeetCode Knight 🏆"' }, { t: "op", v: "," }],
-  [{ t: "ky", v: "  solved" }, { t: "op", v: ": " }, { t: "nm", v: "2600" }, { t: "op", v: "," }],
-  [{ t: "ky", v: "  stack" }, { t: "op", v: ": " }, { t: "st", v: '["React","Node","MongoDB"]' }, { t: "op", v: "," }],
-  [{ t: "ky", v: "  open" }, { t: "op", v: ": " }, { t: "bo", v: "true" }, { t: "cm", v: " // hire me ✓" }],
-  [{ t: "op", v: "};" }],
-];
-const TC = { kw:"#c792ea", fn:"#82aaff", ky:"#7fc8a9", st:"#c3e88d", nm:"#f78c6c", bo:"#ff9cac", op:"#89ddff", cm:"#546e7a" };
-
-function CodePanel() {
-  const [visible, setVisible] = useState(0);
-  const panelRef = useRef(null);
-
-  useEffect(() => {
-    if (visible < CODE_LINES.length) {
-      const t = setTimeout(() => setVisible(v => v + 1), 175);
-      return () => clearTimeout(t);
-    }
-  }, [visible]);
-
-  // Entrance float
-  useEffect(() => {
-    gsap.from(panelRef.current, {
-      opacity: 0, x: 50, y: 20,
-      duration: 0.9, ease: "power3.out", delay: 0.55,
-    });
-  }, []);
-
+// ─── Profile Image ────────────────────────────────────────────────────────────
+function HeroProfileImage() {
   return (
-    <TiltCard maxTilt={6} perspective={1000} glare className="w-full max-w-[420px]">
-      <div ref={panelRef} className="relative rounded-2xl overflow-hidden border border-white/10"
-        style={{ background: "rgba(8,8,12,0.92)", backdropFilter: "blur(24px)" }}>
-        {/* Outer glow */}
-        <div className="absolute -inset-[1px] rounded-2xl -z-10 opacity-40 blur-lg"
-          style={{ background: "linear-gradient(135deg,#8b5cf6,#6366f1)" }} />
+    <div className="relative w-full max-w-[420px] aspect-square flex items-center justify-center">
+      {/* Outer glow rings */}
+      <motion.div 
+        className="absolute inset-0 rounded-full blur-2xl opacity-30 -z-10"
+        style={{ background: "linear-gradient(135deg, #8b5cf6, #ec4899)" }}
+        animate={{ scale: [1, 1.05, 1], rotate: [0, 90, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+      />
+      
+      {/* Floating Image Container */}
+      <TiltCard maxTilt={8} perspective={1000} className="w-[75%] h-[75%] rounded-full z-10">
+        <motion.div 
+          className="w-full h-full rounded-full p-[3px] overflow-hidden"
+          style={{ background: "linear-gradient(135deg, rgba(139,92,246,0.8), rgba(236,72,153,0.8))" }}
+          animate={{ y: [0, -12, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(139,92,246,0.5)" }}
+        >
+          <div className="w-full h-full rounded-full overflow-hidden bg-black/40 backdrop-blur-md">
+            <img 
+              src={profileImg} 
+              alt="Khush Sonani" 
+              className="w-full h-full object-cover rounded-full"
+            />
+          </div>
+        </motion.div>
+      </TiltCard>
 
-        {/* Traffic lights bar */}
-        <div className="flex items-center gap-1.5 px-4 py-3 border-b border-white/[0.06]">
-          {["#ff5f57","#febc2e","#28c840"].map((c, i) => (
-            <div key={i} className="w-3 h-3 rounded-full" style={{ background: c, opacity: 0.85 }} />
-          ))}
-          <span className="ml-2 text-[11px] text-gray-500 font-mono">profile.js</span>
-          <span className="ml-auto text-[10px] text-purple-500/60 font-mono">JS</span>
+      {/* Floating Stat Badges */}
+      <motion.div
+        className="absolute top-[12%] -left-[5%] glass border border-white/10 px-4 py-2.5 rounded-2xl flex items-center gap-3 z-20 shadow-xl shadow-purple-900/20"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0, y: [0, -8, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+      >
+        <span className="text-2xl drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]">⭐</span>
+        <div className="flex flex-col">
+          <span className="text-white font-bold text-[13px]">2600+</span>
+          <span className="text-gray-400 text-[11px]">Problems Solved</span>
         </div>
+      </motion.div>
 
-        {/* Code body */}
-        <div className="p-5 font-mono text-[13px] leading-[1.85] min-h-[216px] overflow-hidden">
-          {CODE_LINES.slice(0, visible).map((line, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.22, ease: "easeOut" }}
-              className="flex items-baseline"
-            >
-              <span className="select-none text-[10px] text-gray-700 w-6 shrink-0">{i + 1}</span>
-              <span>
-                {line.map((tok, j) => (
-                  <span key={j} style={{ color: TC[tok.t] }}>{tok.v}</span>
-                ))}
-              </span>
-            </motion.div>
-          ))}
-          {visible < CODE_LINES.length && (
-            <span className="inline-block w-[7px] h-[14px] align-middle ml-7 rounded-sm"
-              style={{ background: "#8b5cf6", animation: "blink 1s step-end infinite" }} />
-          )}
+      <motion.div
+        className="absolute bottom-[18%] -left-[2%] glass border border-white/10 px-4 py-2.5 rounded-2xl flex items-center gap-3 z-20 shadow-xl shadow-blue-900/20"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0, y: [0, 8, 0] }}
+        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+      >
+        <span className="text-2xl drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]">🏆</span>
+        <div className="flex flex-col">
+          <span className="text-white font-bold text-[13px]">2082 Rating</span>
+          <span className="text-yellow-400 text-[11px]">LeetCode Knight</span>
         </div>
+      </motion.div>
 
-        {/* Status bar */}
-        <div className="flex items-center justify-between px-4 py-2 border-t border-white/[0.05] text-[10px] text-gray-700 font-mono">
-          <span>✓ No issues</span>
-          <span className="text-purple-500/60">UTF-8</span>
+      <motion.div
+        className="absolute top-[25%] -right-[5%] glass border border-white/10 px-4 py-2.5 rounded-2xl flex items-center gap-3 z-20 shadow-xl shadow-pink-900/20"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0, y: [0, -6, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+      >
+        <span className="text-2xl drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]">🥇</span>
+        <div className="flex flex-col">
+          <span className="text-white font-bold text-[13px]">Winner</span>
+          <span className="text-pink-400 font-medium text-[11px]">CPL 2026 Champion</span>
         </div>
-      </div>
-    </TiltCard>
+      </motion.div>
+
+    </div>
   );
 }
 
@@ -283,9 +276,9 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT — code panel */}
+          {/* RIGHT — profile image */}
           <div className="hidden lg:flex justify-center items-center">
-            <CodePanel />
+            <HeroProfileImage />
           </div>
         </div>
       </div>

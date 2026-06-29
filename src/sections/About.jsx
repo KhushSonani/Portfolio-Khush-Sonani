@@ -10,13 +10,14 @@ import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import TiltCard        from "@/components/ui/TiltCard";
 import { useGSAPReveal } from "@/hooks/useGSAP";
 import { EDUCATION }   from "@/lib/constants";
+import profileImg      from "@/assets/images/Me.jpeg";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const STATS = [
   { label: "Problems Solved", value: "2600+", sub: "LeetCode · CF · CodeChef", color: "#8b5cf6", icon: "⚡" },
-  { label: "LeetCode Rating", value: "2082",  sub: "Knight · Top 1.67%",        color: "#f59e0b", icon: "🏆" },
+  { label: "LeetCode Rating", value: "2082",  sub: "Knight · Top 1.67%",        color: "#f59e0b", icon: "🥇" },
   { label: "Codeforces",      value: "1454",  sub: "Specialist rank",            color: "#06b6d4", icon: "📊" },
-  { label: "CGPA",            value: "8.52",  sub: "Nirma University",           color: "#10b981", icon: "🎓" },
+  { label: "CPL 2026 Champion", value: "Winner", sub: "CodeAdda Premier League", color: "#ec4899", icon: "🏆" },
 ];
 
 const TRAITS = [
@@ -56,7 +57,7 @@ function StatCard({ stat }) {
           >{stat.icon}</motion.span>
         </div>
         <div className="text-3xl font-black mb-0.5 tabular-nums" style={{ color: stat.color }}>
-          <AnimatedCounter end={stat.value} />
+          {isNaN(parseInt(stat.value)) ? stat.value : <AnimatedCounter end={stat.value} />}
         </div>
         <div className="text-white text-xs font-semibold mb-1">{stat.label}</div>
         <div className="text-gray-600 text-xs">{stat.sub}</div>
@@ -103,11 +104,35 @@ export default function About() {
         />
 
         {/* ── Bio + Stats grid ── */}
-        <div className="grid lg:grid-cols-5 gap-10 xl:gap-16 items-start mb-16">
+        <div className="grid lg:grid-cols-12 gap-8 xl:gap-12 items-start mb-16">
+
+          {/* Image */}
+          <motion.div
+            className="lg:col-span-3 lg:order-1 order-1 flex justify-center w-full"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewportConfig}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className="relative w-[240px] max-w-full aspect-[4/5] rounded-3xl overflow-hidden glass border border-white/10 group">
+              <motion.div
+                className="absolute inset-0 z-0"
+                style={{ background: "linear-gradient(180deg, transparent, rgba(139,92,246,0.15))" }}
+              />
+              <motion.img
+                src={profileImg}
+                alt="Khush Sonani"
+                className="relative z-10 w-full h-full object-cover"
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-20 pointer-events-none" />
+            </div>
+          </motion.div>
 
           {/* Left — bio */}
           <motion.div
-            className="lg:col-span-3 space-y-5"
+            className="lg:col-span-5 lg:order-2 order-2 space-y-5"
             variants={fadeInLeft}
             initial="hidden"
             whileInView="visible"
@@ -165,7 +190,7 @@ export default function About() {
           {/* Right — tilt stats */}
           <motion.div
             ref={statsRef}
-            className="lg:col-span-2 grid grid-cols-2 gap-3"
+            className="lg:col-span-4 lg:order-3 order-3 grid grid-cols-2 gap-3"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
